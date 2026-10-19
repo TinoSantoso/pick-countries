@@ -21,7 +21,8 @@ export function buildApp(deps: AppDeps): Express {
       genReqId: () => randomUUID(),
       redact: { paths: ['req.headers.authorization'] },
     }),
-  );  app.use('/health', healthRouter(deps));
+  );
+  app.use('/health', healthRouter(deps));
   app.use('/api/v1/countries', countriesRouter(deps));
 
   app.use((_req, res) => {
